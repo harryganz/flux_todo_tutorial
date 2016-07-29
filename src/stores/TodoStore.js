@@ -63,8 +63,8 @@ let TodoStore = Object.assign(new EventEmitter(), {
     this.removeListener(CHANGE_EVENT, callback);
   },
 
-  // Register store actions with AppDispatcher
-  dispacherIndex: AppDispatcher.register(function (payload) {
+  // The index of this store's callback in the dispatcher
+  dispatcherIndex: AppDispatcher.register(function (payload) {
     let action = payload.action;
     let text;
 
