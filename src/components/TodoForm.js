@@ -1,8 +1,5 @@
 import React, {Component} from 'react';
 
-// Actions
-import {create} from '../actions/TodoActions';
-
 class TodoForm extends Component {
   constructor (props) {
     super(props);
@@ -17,7 +14,7 @@ class TodoForm extends Component {
     let form = this.refs.form;
     let text = this.refs.todoText.value.trim();
 
-    create(text);
+    this.props.createTodo(text);
 
     form.reset();
   }

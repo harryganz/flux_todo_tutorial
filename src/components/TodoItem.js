@@ -1,8 +1,5 @@
 import React, {Component, PropTypes} from 'react';
 
-// Actions
-import {destroy} from '../actions/TodoActions';
-
 class TodoItem extends Component {
   constructor (props) {
     super(props);
@@ -14,7 +11,7 @@ class TodoItem extends Component {
   _onClick () {
     let id = this.props.todo.id;
 
-    destroy(id);
+    this.props.destroyTodo(id);
   }
 
   render () {
@@ -27,7 +24,8 @@ class TodoItem extends Component {
 }
 
 TodoItem.propTypes = {
-  todo: PropTypes.object.isRequired
+  todo: PropTypes.object.isRequired,
+  destroyTodo: PropTypes.func.isRequired
 };
 
 module.exports = TodoItem;

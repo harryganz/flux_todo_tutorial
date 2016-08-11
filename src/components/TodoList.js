@@ -4,10 +4,8 @@ import _ from 'lodash';
 // Components
 import TodoItem from './TodoItem';
 
-const TodoList = function (props) {
-  let {todos} = props;
-
-  let todoItems = _.map(todos, el => <TodoItem key={el.id} todo={el} />);
+const TodoList = function ({todos, destroyTodo}) {
+  let todoItems = _.map(todos, el => <TodoItem key={el.id} todo={el} destroyTodo={destroyTodo}/>);
 
   return (
     <div>
@@ -20,7 +18,8 @@ const TodoList = function (props) {
 };
 
 TodoList.propTypes = {
-  todos: PropTypes.object.isRequired
+  todos: PropTypes.object.isRequired,
+  destroyTodo: PropTypes.func.isRequired
 };
 
 module.exports = TodoList;

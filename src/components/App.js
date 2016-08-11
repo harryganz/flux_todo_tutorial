@@ -7,6 +7,9 @@ import TodoForm from './TodoForm';
 // Stores
 import TodoStore from '../stores/TodoStore';
 
+// Actions
+import {create, destroy} from '../actions/TodoActions';
+
 function getTodoState () {
   return {
     todos: TodoStore.getAll()
@@ -38,8 +41,8 @@ class App extends Component {
   render () {
     return (
       <div>
-        <TodoList todos={this.state.todos} />
-        <TodoForm />
+        <TodoList todos={this.state.todos} destroyTodo={destroy}/>
+        <TodoForm createTodo={create}/>
       </div>
     );
   }
